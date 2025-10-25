@@ -9,7 +9,7 @@
     DOMAIN_NAME: "mgunti.space"
   vars_prompt:
   - name: instance
-    prompt: Enter instance name which you want to create:
+    prompt: Enter instance name which you want to create?
     private: false
   
   tasks:
