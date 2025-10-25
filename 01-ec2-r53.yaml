@@ -8,20 +8,20 @@
     ZONE_ID: Z07169343EH3XUR27U2Q2 # replace with your ID
     DOMAIN_NAME: "mgunti.space"
   vars_prompt:
-  - name: instance
+  - name: INSTANCE
     prompt: Enter instance name which you want to create?
     private: false
   
   tasks:
   - name: create ec2 instance
     amazon.aws.ec2_instance:
-      name: "{{ instance }}"
+      name: "{{ INSTANCE }}"
       instance_type: t2.micro
       security_group: "{{ SG_ID }}"
       image_id: "{{ AMI_ID }}"
       region: us-east-1
       tags:
-        Name: "{{ instance }}"
+        Name: "{{ INSTANCE }}"
 #   loop: "{{ instances }}"
     register: ec2_output 
 
