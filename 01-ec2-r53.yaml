@@ -3,9 +3,9 @@
   connection: local
   become: yes
   vars:
-    AMI_ID: "ami-09c813fb71547fc4f"
-    SG_ID: "sg-0c61f8c910f73455b" # replace with your SG ID
-    ZONE_ID: "Z07169343EH3XUR27U2Q2" # replace with your ID
+    AMI_ID: ami-09c813fb71547fc4f
+    SG_ID: sg-0c61f8c910f73455b # replace with your SG ID
+    ZONE_ID: Z07169343EH3XUR27U2Q2 # replace with your ID
     DOMAIN_NAME: "mgunti.space"
   vars_prompt:
   - name: instance
