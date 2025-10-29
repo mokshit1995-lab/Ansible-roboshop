@@ -1,11 +1,9 @@
 - name: setup redis server
   hosts: redis
-  connection: local
   become: yes
   tasks:
   - name: Disable existing redis
     ansible.builtin.command: dnf module disable redis -y
-
 
   - name: enable Redis 7
     ansible.builtin.command: dnf module enable redis:7 -y

@@ -1,0 +1,5 @@
+- name: setup mysql 
+  hosts: mysql
+  become: yes
+  tasks:
+  - name: 
