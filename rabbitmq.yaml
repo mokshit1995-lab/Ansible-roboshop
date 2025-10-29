@@ -1,0 +1,29 @@
+- name: setup rabbit mysql
+  hosts: rabbitmq
+  become: yes
+  tasks:
+  - name: copy rabbit mq repo
+    ansible.builtin.copy:
+    src: rabbit.repo
+    dest: /etc/yum.repos.d/rabbitmq.repo
+
+  - name: install rabbit mq
+    ansible.builtin.package:
+      name: rabbitmq-server
+      state: present
+  
+  - name: enable and start rabbit mq
+    ansible.builtin.service:
+      name: rabbitmq-server
+      state: started
+      enabled: yes
+
+  - name: create user in rabbitmq and give premission
+    community.rabbitmq.rabbitmq_user:
+      user: roboshop
+      password: roboshop123
+      vhost: /
+      configure_priv: .*
+      read_priv: .*
+      write_priv: .*
+    state: present
